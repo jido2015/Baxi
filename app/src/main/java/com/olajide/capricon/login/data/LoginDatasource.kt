@@ -1,6 +1,7 @@
 package com.olajide.capricon.login.data
 
 import android.util.Base64
+import android.util.Log
 import com.olajide.capricon.Constants
 import com.olajide.capricon.Resource
 import com.olajide.capricon.login.domain.LoginRepository
@@ -21,12 +22,12 @@ class LoginDatasource @Inject constructor (private val api: LoginApiService) : L
 
             val result = response.body()
             if (response.isSuccessful && result != null) {
+                Log.d("ErrorResponse", response.toString())
                 Resource.Success(result)
-            } else if (response.message().toString().contains("timeout")) {
-                Resource.Failure("TimeOut")
-            } else {
+            }else {
                 val jObjError = JSONObject(response.errorBody()!!.string())
 
+                Log.d("ErrorResponse", jObjError.toString())
                 val errorMessage = jObjError.getString("error_description").toString()
                 Resource.Failure(errorMessage)
             }

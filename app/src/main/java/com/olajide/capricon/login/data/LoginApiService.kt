@@ -2,13 +2,12 @@ package com.olajide.capricon.login.data
 
 import okhttp3.ResponseBody
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.Header
+import retrofit2.http.*
 
 interface LoginApiService {
 
-    @GET("api/core/account/login")
+    @FormUrlEncoded
+    @POST("api/core/account/login")
     suspend fun getLoginAccess(
         @Header("Authorization") auth: String,
         @Header("Content-Type") type: String,
