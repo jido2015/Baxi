@@ -1,4 +1,4 @@
-package com.olajide.capricon
+package com.olajide.capricon.login.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
