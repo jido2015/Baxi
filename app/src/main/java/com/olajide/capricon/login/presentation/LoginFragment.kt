@@ -62,8 +62,7 @@ class LoginFragment : Fragment() {
             else -> {
 
                 Log.d("LoginObject", "BtnPressed")
-                val obj = LoginObject(binding.password.text.toString(),
-                    binding.username.text.toString(), "android")
+                val obj = LoginObject(binding.password.text.toString(), binding.username.text.toString(), "android")
                 viewModel.login(obj)
             }
         }

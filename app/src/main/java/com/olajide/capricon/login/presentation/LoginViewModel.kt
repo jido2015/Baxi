@@ -7,6 +7,7 @@ import com.olajide.capricon.NetworkResult
 import com.olajide.capricon.Resource
 import com.olajide.capricon.launchIo
 import com.olajide.capricon.login.data.LoginObject
+import com.olajide.capricon.login.data.ResponseContent
 import com.olajide.capricon.login.domain.usecase.interactor.LoginInteraction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -19,7 +20,7 @@ class LoginViewModel @Inject constructor(
     private val interactor: LoginInteraction): ViewModel(){
 
     //StateFow
-    private val _state = MutableSharedFlow<NetworkResult<ResponseBody>>()
+    private val _state = MutableSharedFlow<NetworkResult<ResponseContent>>()
     val state = _state.asSharedFlow()
 
 
