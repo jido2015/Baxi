@@ -2,7 +2,7 @@
     <string name="app_name">Capricon</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="login_fragment_label">Login Fragment</string>
+    <string name="login_fragment_label">Baxi</string>
     <string name="second_fragment_label">List Fragment</string>
 
     <string name="prompt_email">Username</string>
@@ -14,5 +14,5 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="forgot_password">Forgot password ?</string>
-    <string name="remember_me">Rememeber me</string>
+    <string name="remember_me">Remember me</string>
 </resources>

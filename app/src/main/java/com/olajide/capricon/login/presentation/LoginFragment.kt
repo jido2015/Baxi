@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
         binding.loginBtn.setOnClickListener {
 
             Log.d("LoginObject", "BtnPressed")
-            val obj = LoginObject("debbyoffor", "Password@2", "android")
+            val obj = LoginObject(binding.password.text.toString(), binding.username.text.toString(), "android")
             viewModel.login(obj)
 
            // findNavController().navigate(R.id.action_LoginFragment_to_ListFragment)
