@@ -5,6 +5,7 @@ import com.olajide.capricon.base.provideGenericApiService
 import com.olajide.capricon.base.qualifiers.AuthInterceptorOkHttpClient
 import com.olajide.capricon.base.qualifiers.OtherInterceptorOkHttpClient
 import com.olajide.capricon.login.data.ApiService
+import com.olajide.capricon.transactions.data.TrnxApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,5 +51,10 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideApiService(@OtherInterceptorOkHttpClient okHttpClient: OkHttpClient): ApiService =
+        provideGenericApiService(okHttpClient)
+
+    @Singleton
+    @Provides
+    fun provideTrnxService(@AuthInterceptorOkHttpClient  okHttpClient: OkHttpClient): TrnxApiService =
         provideGenericApiService(okHttpClient)
 }

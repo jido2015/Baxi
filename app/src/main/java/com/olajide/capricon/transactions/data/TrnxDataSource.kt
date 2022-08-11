@@ -4,8 +4,9 @@ import android.util.Log
 import com.olajide.capricon.base.Resource
 import com.olajide.capricon.transactions.data.model.Transactions
 import com.olajide.capricon.transactions.domain.TrnxRepository
+import javax.inject.Inject
 
-class TrnxDataSource(private val api: TrnxApiService): TrnxRepository {
+class TrnxDataSource @Inject constructor (private val api: TrnxApiService): TrnxRepository {
     override suspend fun onTransactionReceived(transactionId: String): Resource<Transactions> {
         return try {
             val response = api.getTransactions(transactionId)

@@ -25,7 +25,6 @@ class LoginViewModel @Inject constructor(
     fun login(obj:LoginObject){
             launchIo {
                 _state.emit(NetworkResult.Loading())
-                Log.d("ProductStatusAPI", "Emitted")
                 when (val response = interactor.provideLoginUseCase().invoke(obj)) {
                     is Resource.Failure -> {
                         _state.emit(NetworkResult.Failure(response.message.toString()))
@@ -33,9 +32,8 @@ class LoginViewModel @Inject constructor(
                     is Resource.Success -> {
                         _state.emit(NetworkResult.Success(response.data!!))
                     }
-                    is Resource.Exception -> Log.d("ProductStatusAPI", response.message.toString())
+                    is Resource.Exception -> Log.d("LogException", response.message.toString())
                 }
             }
         }
-
 }

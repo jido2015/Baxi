@@ -10,7 +10,7 @@ import com.olajide.capricon.transactions.data.TrnxApiService
 import com.olajide.capricon.transactions.data.TrnxDataSource
 import com.olajide.capricon.transactions.domain.TrnxRepository
 import com.olajide.capricon.transactions.domain.usecase.implementation.TrnxInteractionImpl
-import com.olajide.capricon.transactions.domain.usecase.interaction.TransactionInteraction
+import com.olajide.capricon.transactions.domain.usecase.interaction.TrnxInteraction
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -60,8 +60,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideTransactionInteration(repository: TrnxRepository):
-            TransactionInteraction = TrnxInteractionImpl(repository)
-
-
+    fun provideTransactionInteraction(repository: TrnxRepository):
+            TrnxInteraction = TrnxInteractionImpl(repository)
 }
