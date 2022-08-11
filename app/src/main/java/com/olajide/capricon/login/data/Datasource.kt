@@ -12,9 +12,9 @@ class Datasource @Inject constructor (private val api: ApiService) : Repository 
 
             val result = response.body()
             if (response.isSuccessful && result != null) {
-                Log.d("ErrorResponse", response.toString())
                 Resource.Success(result)
             }else {
+                Log.d("ErrorResponse", response.toString())
                 val errorMessage =  result!!.resp_message
                 Resource.Failure(errorMessage)
             }

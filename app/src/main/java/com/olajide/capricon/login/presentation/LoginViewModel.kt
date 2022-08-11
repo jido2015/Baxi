@@ -32,7 +32,9 @@ class LoginViewModel @Inject constructor(
                     is Resource.Success -> {
                         _state.emit(NetworkResult.Success(response.data!!))
                     }
-                    is Resource.Exception -> Log.d("LogException", response.message.toString())
+                    is Resource.Exception ->{
+                        _state.emit(NetworkResult.Failure(response.message.toString()))
+                    }
                 }
             }
         }

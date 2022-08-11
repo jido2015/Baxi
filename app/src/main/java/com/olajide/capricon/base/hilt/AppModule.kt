@@ -44,22 +44,20 @@ object AppModule {
             Repository = Datasource(api)
 
 
-    //Providing Interactor for Transactions
+    //Providing Interactor for Login
     @Singleton
     @Provides
     fun provideLoginInteractor(repository: Repository): LoginInteraction =
         LoginInteractionsImpl(repository)
 
 
-
-    //Transactions ApiService
     @Singleton
     @Provides
-    fun provideTransactionRepository(api: TrnxApiService):
-            TrnxDataSource = TrnxDataSource(api)
+    fun provideTrnxRepository(repository: TrnxApiService):
+            TrnxRepository = TrnxDataSource(repository)
 
     @Singleton
     @Provides
-    fun provideTransactionInteraction(repository: TrnxRepository):
-            TrnxInteraction = TrnxInteractionImpl(repository)
+    fun provideTrnxInteraction(repostory: TrnxRepository): TrnxInteraction =
+        TrnxInteractionImpl(repostory)
 }

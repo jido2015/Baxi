@@ -28,12 +28,4 @@ data class DataX(
     val transaction_amount: Long,
     val transaction_date: String,
     val transaction_description: String,
-    val transaction_ref: String,
-    val transaction_service: TransactionService,
-    val transaction_service_id: String,
-    val transaction_status_message: String,
-    val transaction_type: TransactionType,
-    val transaction_type_id: Int,
-    val updated_at: String,
-    val value_given: Boolean
 )

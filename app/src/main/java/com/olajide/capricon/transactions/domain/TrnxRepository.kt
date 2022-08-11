@@ -4,5 +4,5 @@ import com.olajide.capricon.base.Resource
 import com.olajide.capricon.transactions.data.model.Transactions
 
 interface TrnxRepository {
-    suspend fun onTransactionReceived(transactionId: String): Resource<Transactions>
+    suspend fun onTransactionReceived(trnxId: String): Resource<Transactions>
 }

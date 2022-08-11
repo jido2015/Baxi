@@ -7,15 +7,15 @@ import com.olajide.capricon.transactions.domain.TrnxRepository
 import javax.inject.Inject
 
 class TrnxDataSource @Inject constructor (private val api: TrnxApiService): TrnxRepository {
-    override suspend fun onTransactionReceived(transactionId: String): Resource<Transactions> {
+    override suspend fun onTransactionReceived(trnxId: String): Resource<Transactions> {
         return try {
-            val response = api.getTransactions(transactionId)
+            val response = api.getTransactions(trnxId)
 
             val result = response.body()
             if (response.isSuccessful && result != null) {
-                Log.d("ErrorResponse", response.toString())
                 Resource.Success(result)
             }else {
+                Log.d("ErrorResponse", response.toString())
                 val errorMessage =  result!!.resp_message
                 Resource.Failure(errorMessage)
             }

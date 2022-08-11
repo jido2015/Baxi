@@ -1,20 +1,24 @@
 package com.olajide.capricon.login.presentation
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.olajide.capricon.base.NetworkResult
 import com.olajide.capricon.R
+import com.olajide.capricon.base.NetworkResult
 import com.olajide.capricon.base.collectLatestLifecycleFlow
 import com.olajide.capricon.databinding.FragmentLoginBinding
 import com.olajide.capricon.login.data.LoginObject
 import dagger.hilt.android.AndroidEntryPoint
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -73,19 +77,23 @@ class LoginFragment : Fragment() {
                 is NetworkResult.Loading -> {
                     Log.d("LoginResponse", "loading on getting access token")
                     binding.loginBtn.isEnabled = false
-
                     binding.loading.visibility = View.VISIBLE
                 }
                 is NetworkResult.Failure -> {
                     binding.loginBtn.isEnabled = true
-                    Log.d("LoginResponse", "failure on getting access token")
+
+                    Toast.makeText(context, it.errorText, Toast.LENGTH_SHORT).show()
                     binding.loading.visibility = View.GONE
 
                 }
                 is NetworkResult.Success -> {
                     binding.loginBtn.isEnabled = true
                     binding.loading.visibility = View.GONE
-                    Log.d("LoginResponse", "Success on getting access token"+it.data!!.data.token_data)
+
+                    val pref: SharedPreferences = requireContext().getSharedPreferences("com.olajide.capricon", Context.MODE_PRIVATE)
+                    val editor = pref.edit()
+                    editor.putString("token", it.data!!.data.token_data.token)
+                    editor.apply()
                     findNavController().navigate(R.id.action_LoginFragment_to_ListFragment)
                 }
 

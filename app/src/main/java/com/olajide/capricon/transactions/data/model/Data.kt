@@ -2,7 +2,7 @@ package com.olajide.capricon.transactions.data.model
 
 data class Data(
     val current_page: Int,
-    val `data`: List<DataX>,
+    val data: List<DataX>,
     val first_page_url: String,
     val from: Int,
     val last_page: Int,
