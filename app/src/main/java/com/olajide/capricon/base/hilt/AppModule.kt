@@ -1,11 +1,16 @@
 package com.olajide.capricon.base.hilt
 
-import com.olajide.capricon.DispatchProvider
-import com.olajide.capricon.login.data.LoginApiService
-import com.olajide.capricon.login.data.LoginDatasource
-import com.olajide.capricon.login.domain.LoginRepository
+import com.olajide.capricon.base.DispatchProvider
+import com.olajide.capricon.login.data.ApiService
+import com.olajide.capricon.login.data.Datasource
+import com.olajide.capricon.login.domain.Repository
 import com.olajide.capricon.login.domain.usecase.implementation.LoginInteractionsImpl
-import com.olajide.capricon.login.domain.usecase.interactor.LoginInteraction
+import com.olajide.capricon.login.domain.usecase.interaction.LoginInteraction
+import com.olajide.capricon.transactions.data.TrnxApiService
+import com.olajide.capricon.transactions.data.TrnxDataSource
+import com.olajide.capricon.transactions.domain.TrnxRepository
+import com.olajide.capricon.transactions.domain.usecase.implementation.TrnxInteractionImpl
+import com.olajide.capricon.transactions.domain.usecase.interaction.TransactionInteraction
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,14 +37,31 @@ object AppModule {
     }
 
 
+    //Login ApiService
     @Singleton
     @Provides
-    fun provideLoginRepository(api: LoginApiService):
-            LoginRepository = LoginDatasource(api)
+    fun provideLoginRepository(api: ApiService):
+            Repository = Datasource(api)
+
+
+    //Providing Interactor for Transactions
+    @Singleton
+    @Provides
+    fun provideLoginInteractor(repository: Repository): LoginInteraction =
+        LoginInteractionsImpl(repository)
+
+
+
+    //Transactions ApiService
+    @Singleton
+    @Provides
+    fun provideTransactionRepository(api: TrnxApiService):
+            TrnxDataSource = TrnxDataSource(api)
 
     @Singleton
     @Provides
-    fun provideLoginInteractor(repository: LoginRepository): LoginInteraction =
-        LoginInteractionsImpl(repository)
+    fun provideTransactionInteration(repository: TrnxRepository):
+            TransactionInteraction = TrnxInteractionImpl(repository)
+
 
 }

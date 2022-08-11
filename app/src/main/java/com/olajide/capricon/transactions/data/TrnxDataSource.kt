@@ -1,15 +1,14 @@
-package com.olajide.capricon.login.data
+package com.olajide.capricon.transactions.data
 
 import android.util.Log
-import com.olajide.capricon.Resource
-import com.olajide.capricon.login.domain.LoginRepository
-import org.json.JSONObject
-import javax.inject.Inject
+import com.olajide.capricon.base.Resource
+import com.olajide.capricon.transactions.data.model.Transactions
+import com.olajide.capricon.transactions.domain.TrnxRepository
 
-class LoginDatasource @Inject constructor (private val api: LoginApiService) : LoginRepository {
-    override suspend fun onUserLogin(loginObj: LoginObject): Resource<ResponseContent> {
+class TrnxDataSource(private val api: TrnxApiService): TrnxRepository {
+    override suspend fun onTransactionReceived(transactionId: String): Resource<Transactions> {
         return try {
-            val response = api.getLoginAccess(loginObj)
+            val response = api.getTransactions(transactionId)
 
             val result = response.body()
             if (response.isSuccessful && result != null) {

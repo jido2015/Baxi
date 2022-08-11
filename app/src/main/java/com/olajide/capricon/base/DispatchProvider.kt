@@ -1,4 +1,4 @@
-package com.olajide.capricon
+package com.olajide.capricon.base
 
 import kotlinx.coroutines.CoroutineDispatcher
 

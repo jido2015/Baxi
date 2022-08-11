@@ -1,6 +1,6 @@
 package com.olajide.capricon.base
 
-import com.olajide.capricon.Constants.BASE_URL
+import com.olajide.capricon.base.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

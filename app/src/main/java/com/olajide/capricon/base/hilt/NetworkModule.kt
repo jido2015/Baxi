@@ -1,10 +1,10 @@
 package com.olajide.capricon.base.hilt
 
-import com.olajide.capricon.Constants
+import com.olajide.capricon.base.Constants
 import com.olajide.capricon.base.provideGenericApiService
 import com.olajide.capricon.base.qualifiers.AuthInterceptorOkHttpClient
 import com.olajide.capricon.base.qualifiers.OtherInterceptorOkHttpClient
-import com.olajide.capricon.login.data.LoginApiService
+import com.olajide.capricon.login.data.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,6 +49,6 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideApiService(@OtherInterceptorOkHttpClient okHttpClient: OkHttpClient): LoginApiService =
+    fun provideApiService(@OtherInterceptorOkHttpClient okHttpClient: OkHttpClient): ApiService =
         provideGenericApiService(okHttpClient)
 }

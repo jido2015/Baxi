@@ -1,4 +1,4 @@
-package com.olajide.capricon.login.domain.usecase.interactor
+package com.olajide.capricon.login.domain.usecase.interaction
 
 import com.olajide.capricon.login.domain.usecase.GetLoginStatusUseCase
 

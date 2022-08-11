@@ -1,7 +1,6 @@
-package com.olajide.capricon
+package com.olajide.capricon.base
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.olajide.capricon.R
 import com.olajide.capricon.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

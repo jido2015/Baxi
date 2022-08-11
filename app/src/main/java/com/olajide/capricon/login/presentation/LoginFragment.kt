@@ -1,19 +1,17 @@
 package com.olajide.capricon.login.presentation
 
 import android.os.Bundle
-import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.olajide.capricon.NetworkResult
+import com.olajide.capricon.base.NetworkResult
 import com.olajide.capricon.R
-import com.olajide.capricon.collectLatestLifecycleFlow
+import com.olajide.capricon.base.collectLatestLifecycleFlow
 import com.olajide.capricon.databinding.FragmentLoginBinding
 import com.olajide.capricon.login.data.LoginObject
 import dagger.hilt.android.AndroidEntryPoint

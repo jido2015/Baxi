@@ -1,4 +1,4 @@
-package com.olajide.capricon
+package com.olajide.capricon.base
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
