@@ -1,4 +1,4 @@
-package com.olajide.capricon.hilt.qualifiers
+package com.olajide.capricon.base.qualifiers
 
 import javax.inject.Qualifier
 

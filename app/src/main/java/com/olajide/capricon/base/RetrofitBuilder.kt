@@ -1,4 +1,4 @@
-package com.olajide.capricon.hilt.base
+package com.olajide.capricon.base
 
 import com.olajide.capricon.Constants.BASE_URL
 import okhttp3.OkHttpClient

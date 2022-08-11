@@ -1,9 +1,9 @@
-package com.olajide.capricon.hilt
+package com.olajide.capricon.base.hilt
 
 import com.olajide.capricon.Constants
-import com.olajide.capricon.hilt.base.provideGenericApiService
-import com.olajide.capricon.hilt.qualifiers.AuthInterceptorOkHttpClient
-import com.olajide.capricon.hilt.qualifiers.OtherInterceptorOkHttpClient
+import com.olajide.capricon.base.provideGenericApiService
+import com.olajide.capricon.base.qualifiers.AuthInterceptorOkHttpClient
+import com.olajide.capricon.base.qualifiers.OtherInterceptorOkHttpClient
 import com.olajide.capricon.login.data.LoginApiService
 import dagger.Module
 import dagger.Provides

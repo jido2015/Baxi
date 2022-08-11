@@ -61,6 +61,7 @@ class LoginFragment : Fragment() {
             }
             else -> {
 
+                binding.loginBtn.isEnabled = false
                 Log.d("LoginObject", "BtnPressed")
                 val obj = LoginObject(binding.password.text.toString(), binding.username.text.toString(), "android")
                 viewModel.login(obj)
@@ -69,21 +70,24 @@ class LoginFragment : Fragment() {
     }
 
     private fun handleLoginResponse() {
-        collectLatestLifecycleFlow(viewModel.state) { loginResponseUiState ->
-            when (loginResponseUiState) {
+        collectLatestLifecycleFlow(viewModel.state) {
+            when (it) {
                 is NetworkResult.Loading -> {
                     Log.d("LoginResponse", "loading on getting access token")
+                    binding.loginBtn.isEnabled = false
 
                     binding.loading.visibility = View.VISIBLE
                 }
                 is NetworkResult.Failure -> {
+                    binding.loginBtn.isEnabled = true
                     Log.d("LoginResponse", "failure on getting access token")
                     binding.loading.visibility = View.GONE
 
                 }
                 is NetworkResult.Success -> {
+                    binding.loginBtn.isEnabled = true
                     binding.loading.visibility = View.GONE
-                    Log.d("LoginResponse", "Success on getting access token")
+                    Log.d("LoginResponse", "Success on getting access token"+it.data!!.data.token_data)
                     findNavController().navigate(R.id.action_LoginFragment_to_ListFragment)
                 }
 

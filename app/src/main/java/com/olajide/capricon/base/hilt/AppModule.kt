@@ -1,4 +1,4 @@
-package com.olajide.capricon.hilt
+package com.olajide.capricon.base.hilt
 
 import com.olajide.capricon.DispatchProvider
 import com.olajide.capricon.login.data.LoginApiService
