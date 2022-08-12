@@ -67,6 +67,7 @@ class ListFragment: Fragment() {
                     networkResult.data.let {
                         transactions.addAll(it.data.data)
                         adapter.notifyDataSetChanged()
+
                     }
                 }
 
