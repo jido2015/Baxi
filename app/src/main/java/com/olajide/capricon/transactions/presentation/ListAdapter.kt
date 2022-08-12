@@ -13,7 +13,7 @@ class ListAdapter(val transactions: List<DataX>) : RecyclerView.Adapter<ListAdap
 
         fun bind( trnx: DataX) {
             binding.trnxName.text = trnx.transaction_description
-            binding.trnxAmt.text = trnx.transaction_amount.toString()
+            binding.trnxAmt.text =  "₦"+trnx.transaction_amount.toString()
             binding.trnxDate.text = trnx.transaction_date
         }
     }
